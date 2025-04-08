@@ -89,6 +89,7 @@ class _MyHomePageState extends State<MyHomePage>
       child: Scaffold(
         bottomNavigationBar: menu(),
         body: TabBarView(
+          physics: NeverScrollableScrollPhysics(),
           controller: _tabController,
           children: _childrenScreen,
         ),
@@ -115,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage>
             icon: Icon(Icons.person),
           ),
           Tab(
-            text: "Giới thiệu",
+            text: "Thông tin",
             icon: Icon(Icons.document_scanner_rounded),
           ),
           Tab(

@@ -18,55 +18,57 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return Scaffold(
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
-        child: Container(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                  padding: const EdgeInsets.all(30),
-                  decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(100),
+        child: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                    padding: const EdgeInsets.all(30),
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: Text('Chào mừng bạn đến với ứng dụng ... của ...',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                        ))),
+                Container(
+                    margin: EdgeInsets.only(top: 20, bottom: 20),
+                    padding: const EdgeInsets.all(30),
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: Text('Vui lòng cho chúng tôi biết tên của bạn',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                        ))),
+                TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Tên của bạn',
                   ),
-                  child: Text('Chào mừng bạn đến với ứng dụng ... của ...',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.white,
-                      ))),
-              Container(
-                  margin: EdgeInsets.only(top: 20, bottom: 20),
-                  padding: const EdgeInsets.all(30),
-                  decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                  child: Text('Vui lòng cho chúng tôi biết tên của bạn',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.white,
-                      ))),
-              TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Tên của bạn',
+                  onChanged: (value) {
+                    AppData.instance.userName = value;
+                  },
                 ),
-                onChanged: (value) {
-                  AppData.instance.userName = value;
-                },
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  _showDialog(context);
-                  // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  //   return ProfileScreen();
-                  // }));
-                },
-                child: Text('Tiếp tục'),
-              ),
-            ],
+                ElevatedButton(
+                  onPressed: () {
+                    _showDialog(context);
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    //   return ProfileScreen();
+                    // }));
+                  },
+                  child: Text('Tiếp tục'),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -94,7 +96,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         builder: (BuildContext context) {
           return StatefulBuilder(builder: (_, state) {
             Timer.periodic(Duration(seconds: 1), (timer) {
-              state(() {});
+              if (i == 0) {
+                timer.cancel();
+              } else {}
+              if (!mounted) {
+                timer.cancel();
+              } else {
+                state(() {});
+              }
             });
             return AlertDialog(
               title: Text(

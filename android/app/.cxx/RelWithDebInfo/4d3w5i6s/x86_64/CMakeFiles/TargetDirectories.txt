@@ -1,0 +1,2 @@
+/Users/dev/Documents/personal/health_travel/android/app/.cxx/RelWithDebInfo/4d3w5i6s/x86_64/CMakeFiles/edit_cache.dir
+/Users/dev/Documents/personal/health_travel/android/app/.cxx/RelWithDebInfo/4d3w5i6s/x86_64/CMakeFiles/rebuild_cache.dir

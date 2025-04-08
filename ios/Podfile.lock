@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - VietMap (2.0.0)
+  - vietmap_flutter_gl (0.0.2):
+    - Flutter
+    - VietMap (~> 2.0.0)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - vietmap_flutter_gl (from `.symlinks/plugins/vietmap_flutter_gl/ios`)
+
+SPEC REPOS:
+  trunk:
+    - VietMap
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  vietmap_flutter_gl:
+    :path: ".symlinks/plugins/vietmap_flutter_gl/ios"
+
+SPEC CHECKSUMS:
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  VietMap: 1fc4a1e27896a19bc8b8a62e2227b1e0116a698d
+  vietmap_flutter_gl: 86a6a19bc54e7c1d690cef7ccf315f64f30b3074
+
+PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
+
+COCOAPODS: 1.16.2

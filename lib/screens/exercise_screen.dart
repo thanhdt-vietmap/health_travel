@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_travel/main.dart';
 
 class ExerciseScreen extends StatelessWidget {
   const ExerciseScreen({super.key});
@@ -7,7 +8,7 @@ class ExerciseScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sản phẩm đề xuất của công ty đề xuất'),
+        title: Text('Sản phẩm đề xuất của công ty'),
       ),
       body: Column(
         children: [
@@ -41,7 +42,11 @@ class ExerciseScreen extends StatelessWidget {
           Text('Không nên luyện tập mọi lúc mọi nơi'),
           ElevatedButton(
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return MyHomePage(
+                  title: "Khám phá",
+                );
+              }));
             },
             child: Text('Bắt đầu'),
           ),
